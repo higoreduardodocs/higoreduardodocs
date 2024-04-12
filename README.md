@@ -403,4 +403,76 @@
 
 </details>
 
+<details>
+
+  <summary> :scroll: PHP</summary>
+
+  > Laravel:
+  ```
+  composer create-project --prefer-dist laravel/laravel <project-name>
+  composer require laravel/jetstream
+  php artisan jetstream:install livewire
+
+  php artisan serve
+
+  php artisan migrate
+  php artisan migrate:fresh
+  php artisan migrate:status
+  php artisan migrate:rollback
+  php artisan migrate:reset
+  php artisan migrate:refresh
+
+  php artisan make:migration create_products_table
+  php artisan make:migration add_category_to_products_table
+
+  php artisan make:controller EventController
+  php artisan make:model Event
+
+  @if(cond)
+    ...
+  @elseif(cond)
+    ...
+  @else
+    ...
+  @endif
+
+  @for($i = 0; $i < count($arr), $i++)
+    <p>{{ $arr[$i] }} - {{ $i }}</p>
+  @endfor
+
+  @foreach($arr as $var)
+    <p>{{ $var }} - {{ $loop->index }}</p>
+  @endforeach
+
+  @php
+    ...
+  @endphp
+
+  @yield('content')
+  @yield('title')
+
+  @extends('layouts.main')
+  @section('title', 'Home')
+
+  @section('content')
+    ...
+  @endsection
+
+  @csrf
+  @method("PUT")
+
+  @auth
+    ...
+  @endauth
+
+  @guest
+    ...
+  @endguest
+
+  {{ $variable }}
+  {{-- Comment --}}
+  ```
+
+</details>
+
 > :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
