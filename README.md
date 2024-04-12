@@ -329,4 +329,32 @@
 
 </details>
 
+<details>
+
+  <summary> :scroll: JavaScript/TypeScript</summary>
+
+  > React/Native/Next:
+  ```
+  yarn create vite
+  yarn create next-app
+  yarn create expo
+  yarn start
+  yarn start --clear
+
+  yarn add -D tailwindcss postcss autoprefixer
+  yarn tailwindcss init -p
+
+  yarn prisma init
+  yarn prisma migrate dev --name <migrate-name>
+  yarn prisma db push
+  ```
+
+  > Node:
+  ```
+  yarn tsc --init
+  yarn init -y
+  ```
+
+</details>
+
 > :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
