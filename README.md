@@ -357,4 +357,50 @@
 
 </details>
 
+<details>
+
+  <summary> :scroll: Mongo</summary>
+
+  > URI:
+  ```
+  mongodb://<username>:<password>@<ip-address>:<port>/<database>?authSource=admin
+  mongodb://<ip-address>:<port>/<database>
+  ```
+
+  > Access bash:
+
+  ```
+  docker exec -it mongo bash
+  docker exec -it mongo mongo -u<username> -p<password>
+  docker exec -it mongo mongo
+  mongo <database> -u <username> --authenticationDatabase <password> -p
+
+  show dbs
+  use <database>
+  show users
+  use admin
+  db.createUser({user:"admin",pwd:"admin",roles:["root"]});
+  db.createUser({user:"admin",pwd:"admin",roles:[{"role":"readWrite","db":"mongo-dev"}]});
+  ```
+
+</details>
+
+<details>
+
+  <summary> :scroll: PostgreSQL</summary>
+
+  > Access bash:
+  ```
+  docker exec -it <service-name> psql -U <username> <database>
+
+  \dt
+  SELECT * FROM pg_catalog.<table>;
+  sudo -u postgres psql
+  ALTER USER postgres PASSWORD <password>;
+  psql -h localhost -U postgres
+  createdb -h localhost -U postgres -W <database>
+  ```
+
+</details>
+
 > :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
