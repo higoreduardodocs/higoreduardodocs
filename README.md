@@ -475,4 +475,69 @@
 
 </details>
 
+<details>
+
+  <summary> :scroll: Python</summary>
+
+  > Overview:
+  ```
+  Linguagem dinâmica, possui IDLE (python3) já no instalador da linguagem. As variáveis são armazenadas referenciando endereço de memória, fazendo com que seja possíveis várias variáveis apontarem para mesmo endereço reduzindo consumo de memória. Suas classes possuem atributos e comporamentos quando instanciadas. O escopo da linguagem é fechado com indentação de código e não blocos. As funções podem receber parâmetros obrigatórios no-default arguments como opcionais default arguments, além disso em sua chamada esses parâmetros podem ser passados de forma posicional ou nomeadas também conhecido como keywords arguments. Atributos protected/private devem ter undescore em sua declação como exemplo: "\_variable". No desenvolvimento de API's é usual quando trabalhar com data/hora usar UTC-0 de acordo com padrão ISO 8601. Em testes a utilização de mocks é ideal para simular condições reais não fazendo requisições externas ou consumindo muito recursos da máquina, é ideal utilizar a cobertura completa de testes no projeto text coverage.
+  ```
+
+  > Default:
+  ```
+  Tipos primitivos:
+  - String "Hello world"
+  - Int 10
+  - Float 9.99
+  - Bool True/False
+  - Empty: ""
+  - Null: None
+
+  Estruturas de dados:
+  - Tuple (10, "Name")
+  - List [10, 20, "Name"]
+  - Set: {"Name", 20}
+  - Dict: {"key": 20}
+
+  Operadores aritméticos
+  - Sum: 10 + 15
+  - Subtract: 10 - 15
+  - Multiply: 10 * 15
+  - Divisão: `10 / 15`
+  - Divisão inteira: `10 // 15`
+  - Potência: `10 ** 15`
+  - Módulo: `10 % 15`
+
+  Operadores relacionais:
+  - Igualdade: `2 == 2`
+  - Diferença: `2 != 2`
+  - Maior: `2 > 2`
+  - Maior/Igual: `2 >= 2`
+  - Menor: `2 < 2`
+  - Menor/Igual: `2 <= 2`
+
+  Operadores lógicos:
+  - Negação: `not`
+  - Conjunção: `and`
+  - Disjunção: `or`
+
+  Estruturas condicionais
+  a = 10
+  if a > 20:
+    print("a > 20")
+  elif a > 10:
+    print("a > 10")
+  else:
+    print("a < 10")
+
+  Estruturas de repetição:
+  i = 1
+  while i < 10:
+    print(i)
+    i += 1
+  ```
+
+</details>
+
 > :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
