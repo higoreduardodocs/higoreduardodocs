@@ -41,6 +41,15 @@
   git add <file-name>
   git commit -m "<commit-message>"
   git push --origin
+  git branch
+  git branch -a
+  git checkout <origin/branch-name>
+  git checkout <branch-name>
+  git branch -m <new-branch-name>
+  git branch -m <old-branch-name> <new-branch-name>
+  git push origin -u <new-branch-name>
+  git push origin --delete <old-branch-name>
+  git reflog
   ```
 
   > Git local user:
