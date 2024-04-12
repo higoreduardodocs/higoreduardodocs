@@ -101,3 +101,5 @@
   ```
 
 </details>
+
+> :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
