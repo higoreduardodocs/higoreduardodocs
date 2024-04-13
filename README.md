@@ -257,7 +257,8 @@
 
   > Inspect:
   ```
-  docker inspect <container-name> | grep backup
+  docker inspect <container-name>
+  docker inspect <container-name> | grep IPAddress
   docker network ls
   docker info
   ```
