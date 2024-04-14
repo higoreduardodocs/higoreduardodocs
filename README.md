@@ -819,4 +819,82 @@
 
 </details>
 
+<details>
+
+  <summary> :scroll: Flask</summary>
+
+  ```
+  flask run
+  FLASK_APP=main.py FLASK_ENV=development flask run --port 8000
+  ```
+
+</details>
+
+<details>
+
+  <summary> :scroll: Django</summary>
+
+  > Overview:
+  ```
+  Aplicação deve ser conter as urls do endpoint, e seus templates ser importados na raíz `<settings.py -> INSTALLED_APPS>`. O acesso admin da aplicação é em `http://localhost:3000/admin` e para cada modelo a ser manipulado pelo superadmin deve ser exposto na page admin do próprio app.
+
+Primeiro passo é criar o ambiente de desenvolvimento: `python3 -m venv venv` e ativá-lo para instalar dependêncies e rodar o projeto: `source ./venv/bin/activate`.
+Para instalação individual de dependências pode ser feito por: `pip install Django==4.2.4` ou para instalar a partir de um gerenciador por: `pip install -r requirements/dev.txt`
+
+Com a instalação do Django é realizado a criação do projeto: `django-admin startproject <project-name> .`, para testar seu êxito rode o servidor: `python manage.py runserver`.
+A criação de aplicação se dá a nível de entidades logo para cada aplicação deverá ser criada por: `django-admin startapp <app-name>`.
+
+Assim é possível com a aplicação criada gerar seus `Models`, como exemplo:
+
+
+from django.db import models
+
+
+class Agendamento(models.Model):
+  data_agendamento = models.DateTimeField()
+  nome_cliente = models.CharField(max_length=255)
+  email_cliente = models.EmailField()
+  telefone_cliente = models.CharField(max_length=20)
+  cancelado = models.BooleanField(default=False)
+
+
+Após a criação do models é nencessário gerar suas migrations: `python manage.py makemigrations` e `python manage.py migrate`
+
+As configurações do projeto é importante ser separada pelo escopo do ambiente em questão. Assim em `/api/settings` gere um `__init__.py` para modularizar o dir, e dentro especifique suas configurações `base`, `dev` e `prod`. Após as configurações definidas devem ser passadas para os arquivos de carregamento em: `/api/asgi.py`, `/api/wsgi.py` e `/manage.py`
+
+    - Django Create: `django-admin startproject <project-name> .`
+    - Django Create app: `django-admin startapp <app-name>`
+    - Django Run: `python manage.py runserver`
+    - Django Migrations: `python manage.py makemigrations`
+    - Django Migrate: `python manage.py migrate`
+    - Django DBShell: `python manage.py dbshell`
+    - Django PyShell: `python manage.py shell`
+    - Django Superuser: `python manage.py createsuperuser`
+    - Django Test:
+      `  python manage.py test
+    pytest
+    pytest --cov`
+    - Django Settings: `DJANGO_SETTINGS_MODULE=api.settings.prod python manage.py runserver`
+  ```
+
+  > CLI:
+  ```
+  - DbShell Tables: `.tables`
+  - DbShell Header: `.header ON`
+  - DbShell Null: `.nullvalue NULL`
+
+  - PyShell ORM Import: `from agenda.models import Categoria, Evento`
+  - PyShell ORM Create: `Categoria.objects.create(nome="BackEnd")`
+  - PyShell ORM Save: `categoria.save()`
+  - PyShell ORM All: `Categoria.objects.all()`
+  - PyShell ORM Filter: `Categoria.objects.filter(nome="BackEnd")`
+  - PyShell ORM Object: `Categoria.objects.filter(nome="BackEnd")[0]`
+  - PyShell ORM ForeignKey: `Evento(nome="Nome", categoria=Categoria.objects.filter(nome="BackEnd")[0])`
+  - PyShell ORM Filter ForeignKey: `Evento.objects.filter(categoria__nome="BackEnd")`
+  - PyShell ORM Filter Date: `Evento.objects.filter(data__gte=date.today())`
+  - PyShell ORM Filter Unique: `Evento.objects.get(id=id)`
+  ```
+
+</details>
+
 > :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
