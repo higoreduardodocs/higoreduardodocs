@@ -494,6 +494,23 @@
   Linguagem dinâmica, possui IDLE (python3) já no instalador da linguagem. As variáveis são armazenadas referenciando endereço de memória, fazendo com que seja possíveis várias variáveis apontarem para mesmo endereço reduzindo consumo de memória. Suas classes possuem atributos e comporamentos quando instanciadas. O escopo da linguagem é fechado com indentação de código e não blocos. As funções podem receber parâmetros obrigatórios no-default arguments como opcionais default arguments, além disso em sua chamada esses parâmetros podem ser passados de forma posicional ou nomeadas também conhecido como keywords arguments. Atributos protected/private devem ter undescore em sua declação como exemplo: "\_variable". No desenvolvimento de API's é usual quando trabalhar com data/hora usar UTC-0 de acordo com padrão ISO 8601. Em testes a utilização de mocks é ideal para simular condições reais não fazendo requisições externas ou consumindo muito recursos da máquina, é ideal utilizar a cobertura completa de testes no projeto text coverage.
   ```
 
+  > CLI:
+  ```
+  python3 <file-name>
+  python -V
+  python3 -V
+
+  python3 -m venv venv
+  source ./venv/bin/activate
+  deactivate
+
+  pip list
+  pip freeze
+  pip freeze > requirements.txt
+  pip install <dependency-name>
+  pip install -r requirements.txt
+  ```
+
   > Default:
   ```
   Tipos primitivos:
@@ -510,42 +527,294 @@
   - Set: {"Name", 20}
   - Dict: {"key": 20}
 
-  Operadores aritméticos
-  - Sum: 10 + 15
-  - Subtract: 10 - 15
-  - Multiply: 10 * 15
-  - Divisão: `10 / 15`
-  - Divisão inteira: `10 // 15`
-  - Potência: `10 ** 15`
-  - Módulo: `10 % 15`
+  Variáveis:
+  - foo = 'Lorem ipsum'
+  - foo = 10
+  - foo = 10.8976
+  - foo = True
 
-  Operadores relacionais:
-  - Igualdade: `2 == 2`
-  - Diferença: `2 != 2`
-  - Maior: `2 > 2`
-  - Maior/Igual: `2 >= 2`
-  - Menor: `2 < 2`
-  - Menor/Igual: `2 <= 2`
+  IO/Cast:
+  - foo = input('input: ')
+  - foo = str(input('input: '))
+  - foo = int(input('input: '))
+  - foo = float(input('input: '))
+  - foo = bool(input('input: '))
+
+  - print('foo')
+  - print('foo', 5)
+  - print('foo' + 'bar')
+  - print('foo:{0} bar:{:20}! \n xpto:{:>10} foobar:{:-^10} {:.3f}'.format(foo, bar, xpto, foobar, foo))
+  - print(f'foo:{foo} bar:{bar:20}')
+  - print('='*5, end='')
+  - print(type(foo))
+  - print(id(10))
+
+  String methods:
+  - len(foo)
+
+  - foo.capitalize()
+  - foo.title()
+  - foo.lower()
+  - foo.upper()
+  - foo.swapcase()
+  - foo.split()
+  - '-'.join(foo)
+  - foo.replace('foo', 'bar')
+
+  - foo.count('o')
+  - foo.count('o', 0, 1)
+  - foo.startswith('f')
+  - foo.endswith('o')
+  - foo.find('o')
+  - 'foo' in foo
+  
+  - foo.isalnum()
+  - foo.isalpha()
+  - foo.islower()
+  - foo.isupper()
+  - foo.isnumeric()
+
+  -  foo.ljust(10)
+  - foo.rjust(10)
+  - foo.center(10)
+  - foo.lstrip()
+  - foo.rstrip()
+  - foo.strip()
+
+  - print(foo[2])
+  - print(foo[1:])
+  - print(foo[:3])
+  - print(foo[1:3])
+  - print(foo[1:9:2])
+  - print(foo[1::2])
+  - print(foo[:9:2])
+  - print(foo[:])
+
+  Operadores aritméticos
+  - xpto = foo + bar
+  - xpto = foo - bar
+  - xpto = foo * bar
+  - xpto = foo / bar
+  - xpto = foo // bar
+  - xpto = foo ** bar = pow(foo,bar)
+  - xpto = foo % bar
+
+  Operadores relacionais/comparativos:
+  - print(foo == bar)
+  - print(foo != bar)
+  - print(foo > bar)
+  - print(foo >= bar)
+  - print(foo < bar)
+  - print(foo <= bar)
 
   Operadores lógicos:
-  - Negação: `not`
-  - Conjunção: `and`
-  - Disjunção: `or`
+  - print(not foo)
+  - print(foo and bar)
+  - print(foo or bar)
 
   Estruturas condicionais
-  a = 10
-  if a > 20:
-    print("a > 20")
-  elif a > 10:
-    print("a > 10")
+  if not foo:
+    print('foo')
+  elif not bar and not bar:
+    print(bar)
   else:
-    print("a < 10")
+    print('bar')
+  
+  print('foo' if not foo else 'bar')
+  if 'hello' in 'hello world':
+    print('hello')
 
   Estruturas de repetição:
-  i = 1
-  while i < 10:
+  i = 0
+  while i < 5:
     print(i)
-    i += 1
+    i += 2
+  
+  while True:
+    foo = int(input('Informe um número: '))
+    if foo == 999:
+      break
+    print(f'{foo:.2f}')
+
+  for i in range(5, 0, -2):
+    print(i)
+
+  for i in foo:
+    print(i)
+
+  Tuplas:
+  foo = 'foo', 'bar', 'foobar'
+  foo = (1, 2, 3, 4, 'foo', 'bar')
+  bar = (6, 5)
+  
+  print(foo[0])
+  print(foo[0:1])
+  print(foo[:-1])
+  print(foo[-2])
+  
+  print(len(foo))
+  print(sorted(bar))
+  print(foo+bar)
+  print(bar.count(6))
+  print(bar.index(5, 0))
+  
+  for i in foo:
+    print(f'value: {i}')
+  for i in range(0, len(foo)):
+    print(f'item: {i} value: {foo[i]}')
+  for i, v in enumerate(foo):
+    print(f'item: {i} value: {v}')
+
+  del(foo)
+
+  T = (10,20,30,40,50)
+  a,b,c,d,e = T
+  print("a=",a,"b=",b)
+
+  Listas:
+  foo = ['foo', 'bar', 'foobar']
+  bar = list(range(3, 10))
+  barfoo = list()
+  foobar = bar[:]
+  barfoo = foo + bar
+  barfoo = foo * 2
+  barfoo = list(range(2,11,3))
+  
+  foo.append(4)
+  foo.insert(2, 0)
+  barfoo.append(foo[:])
+  bar.extend(barfoo)
+  foobar.append(50)
+  foobar.clear()
+  foo.pop(2)
+  foo.remove('foo')
+  bar.sort(reverse=True)
+  bar.reverse()
+  del foo[2]
+  
+  print(foo)
+  print(barfoo[0][0])
+  print(barfoo[0][0:2:1])
+  print(len(foo))
+  print(min(foo))
+  print(max(foo))
+  print(max(foo))
+  print(sorted(foo))
+  print('foo' if 3 in bar else 'bar')
+  
+  for i in foo:
+    print(f'value: {i}')
+  for i, v in enumerate(foo):
+    print(f'item: {i} value: {v}', end='-->')
+
+  T = [10,20,30,40,50]
+  a,b,c,d,e = T
+  print("a=",a,"b=",b)
+
+  Dicionários:
+  foo = dict()
+  bar = dict({"id": 1, **foo})
+  foo = { 'key': 'key', 'value': 'value' }
+  foo['foo'] = 'foo'
+  bar = foo.copy()
+  foobar = json.dumps(json)
+  json = json.loads(foobar)
+  
+  del foo['foo']
+  
+  print(foo)
+  print(bar)
+  print('key' in foo)
+  print(foo['key'])
+  print(foo.keys())
+  print(foo.values())
+  print(foo.items())
+
+  for i in foo.keys():
+    print(f'item: {i} value: {foo[i]}')
+  for v in foo.values():
+    print(f'value: {v}')
+  for i, v in foo.items():
+    print(f'item: {i} value: {v}', end=' --> ')
+
+  Conjuntos:
+  foo = variable = {"Name", "Lastname", 10}
+  bar = set(["Name", "Lastname", 10])
+
+  foo.add(20)
+  foo.union(bar) ou foo | bar
+  foo.intersection(bar) ou foo & bar
+  foo..difference(bar) ou foo - bar
+
+  Funções:
+  def hello_world(params, other_params=None):
+    print(params)
+    print(other_params)
+    return f"{params} {other_params}"
+  hello_world("My name is", other_params="Is my name")
+
+  def unPackage(*data):
+    for i in data:
+    print(i)
+
+  def sum(a = 0, b = 0, *c):
+    global x
+    x = 10
+    s = a + b
+    if len(c) > 0:
+      for i in c:
+        s += i
+    return s
+  print(sum(a=0, b=2))
+  print(x)
+
+  def function_blank():
+    ...
+  def function_pass():
+    pass
+
+  Bibliotecas:
+  from math import sqrt, floor
+  from random import randint, random
+  from utils import numbers
+  import emoji
+
+  print('{:.2f}'.format(floor(sqrt(9))))
+  print('{:.2f} - {:.2f}'.format(random(), randint(1, 10)))
+  print(f'{numbers.fat(5)}')
+  print(emoji.emojize('hello world :sunglasses:'))
+
+  Classes:
+  class ClassHelloWorld:
+    def __init__(self, params): # constructor
+      self.params = params
+  
+    def new_params(self, new_params): # comportamento
+      self.params = new_params
+  
+    def instance_method(self): # Obrigatório ter um obj (instância)
+      return ("Método de instância", self)
+  
+    @classmethod
+    def class_method(cls): # Não obrigatório
+      return ("Método de classe, cls)
+  
+    @staticmethod
+    def static_method(): # Não obrigatório
+      return ("Método estático")
+  
+  hello_world = ClassHelloWorld("My name is")
+  hello_world.new_params("Is my name")
+  print(hello_world.params)
+  print(hello_world.instance_method())
+  print(ClassHelloWorld.class_method())
+  print(ClassHelloWorld.static_method())
+  
+  class ClassBlank:
+    ...
+  
+  class ClassPass:
+    pass
   ```
 
 </details>
