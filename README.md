@@ -280,7 +280,12 @@
   docker rm <container-id|container-name> -fv
   docker rmi <image-id|image-name>
   docker system prune
+  docker volume prune
+  docker container prune
+  docker image prune
   docker volume rm <volume-id>
+  docker volume rm $(docker volume ls -qf dangling=true)
+  docker volume rm $(docker volume ls -q --filter dangling=true)
   ```
 
   > Swarm:
