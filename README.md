@@ -363,6 +363,11 @@
   ```
   yarn tsc --init
   yarn init -y
+
+  nest new <project-name>
+  nest generate module <module-name>
+  nest generate service <service-name>
+  nest generate controller <controller-name>
   ```
 
 </details>
