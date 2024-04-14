@@ -73,6 +73,11 @@
   git push --set-upstream origin main
   git pull origin main
   git status
+  git reset --hard HEAD~1
+  git reset --hard HEAD^
+  git push origin HEAD --force
+  git reset HEAD@{1}
+  git push origin +HEAD^:main
   ```
 
   > Git branch:
