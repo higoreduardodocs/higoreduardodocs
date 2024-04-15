@@ -266,6 +266,8 @@
   docker inspect <container-name> | grep IPAddress
   docker network ls
   docker info
+  sudo lsof -i -P -n | grep <container-port>
+  sudo systemctl stop <service-name>
   ```
 
   > Container list:
